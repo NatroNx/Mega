@@ -81,9 +81,9 @@ void printMyValues()
 
 void loop() 
 {
-    if(Serial.available())
+    if(Serial2.available())
     {
-        char charFromSerial = Serial.read();
+        char charFromSerial = Serial2.read();
         if (charFromSerial == '\n')
           {parseCommand(StringFromSerial);
             StringFromSerial="";
