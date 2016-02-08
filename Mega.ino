@@ -23,7 +23,7 @@
  Display that value on the Serial Monitor
  */
 
-boolean debugging=0;
+boolean debugging=1;
 
 //** the testvariables
 String testString = "Test";
@@ -32,9 +32,6 @@ float testFloat = 8.9;
 byte testByte = 23;
 boolean testBoolean = true;
 DateTime testDateTime;
-
-
-
 
       
 String StringFromSerial;
@@ -160,31 +157,31 @@ String part1;
       //____________________________________________________________________________________________________use this to parseStrings
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("teststring"))
       {
-        sendCommand(testString);
+        sendCommand(part1.substring(0, part1.indexOf("_")), testString);
       }
       //____________________________________________________________________________________________________use this to parseInts
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testInt"))
       {
-        sendCommand(String(testInt));
+        sendCommand(part1.substring(0, part1.indexOf("_")), String(testInt));
       }      
       //____________________________________________________________________________________________________use this to parseFloats
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testFloat"))
       {
-        sendCommand(String(testFloat));
+        sendCommand(part1.substring(0, part1.indexOf("_")), String(testFloat));
       }    
        //____________________________________________________________________________________________________use this to parseByte
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testByte"))
       {
-        sendCommand(String(testByte));
+        sendCommand(part1.substring(0, part1.indexOf("_")), String(testByte));
       }  
        //____________________________________________________________________________________________________use this to parseBoolean
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testBoolean"))
       {
-        sendCommand(String(testBoolean));
+        sendCommand(part1.substring(0, part1.indexOf("_")), String(testBoolean));
       }  
        //____________________________________________________________________________________________________use this to parsDateTime in Seconds unixtimne!
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testDateTime"))
-      {        sendCommand(String(testDateTime.unixtime()));
+      {        sendCommand(part1.substring(0, part1.indexOf("_")), String(testDateTime.unixtime()));
       }  
     } 
     }
@@ -199,12 +196,13 @@ String part1;
 
 
 
-void sendCommand(String sendCom)
+void sendCommand(String variable, String sendCom)
 {
-  String sendThis = sendCom + "| \n" ;
+  String sendThis = "Dataforyou|"+ variable +"_" +sendCom + "| \n" ;
    char charBuf[100];
    sendThis.toCharArray(charBuf, 100);
-   Serial.write(charBuf);
+   Serial.println(charBuf);
+   Serial2.write(charBuf);
 }
 
 
