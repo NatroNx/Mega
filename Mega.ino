@@ -100,7 +100,7 @@ void parseCommand(String com)
 { 
 String part1;
  // part1 = com.substring(0, com.indexOf("|"));
-  if(com.substring(0, com.indexOf("|")).equalsIgnoreCase("DataForYou"))
+  if(com.substring(0, com.indexOf("|")).equalsIgnoreCase("Put"))
     {
     for(int i=com.indexOf("|"); i<com.lastIndexOf("|"); i=com.indexOf("|",i+1))
      {String part1 = com.substring(i+1, com.indexOf("|",i+1));
@@ -150,7 +150,7 @@ String part1;
       }  
     }
     }
-  else  if(com.substring(0, com.indexOf("|")).equalsIgnoreCase("DataForMe"))
+  else  if(com.substring(0, com.indexOf("|")).equalsIgnoreCase("Get"))
     {
     for(int i=com.indexOf("|"); i<com.lastIndexOf("|"); i=com.indexOf("|",i+1))
      {String part1 = com.substring(i+1, com.indexOf("|",i+1));
@@ -198,7 +198,7 @@ String part1;
 
 void sendCommand(String variable, String sendCom)
 {
-  String sendThis = "Dataforyou|"+ variable +"_" +sendCom + "| \n" ;
+  String sendThis = "Put|"+ variable +"_" +sendCom + "| \n" ;
    char charBuf[100];
    sendThis.toCharArray(charBuf, 100);
    Serial.println(charBuf);
