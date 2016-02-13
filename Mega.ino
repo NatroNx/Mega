@@ -108,44 +108,45 @@ String part1;
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("teststring"))
       {
         testString=part1.substring(part1.indexOf("_")+1,part1.length());
+        //sendCommand(part1.substring(0, part1.indexOf("_")), testString);
         printMyValues();
       }
       //____________________________________________________________________________________________________use this to parseInts
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testInt"))
       {
         testInt=(part1.substring(part1.indexOf("_")+1,part1.length())).toInt();
+        //sendCommand(part1.substring(0, part1.indexOf("_")), String(testInt));
         printMyValues();
       }      
       //____________________________________________________________________________________________________use this to parseFloats
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testFloat"))
       {
         testFloat=(part1.substring(part1.indexOf("_")+1,part1.length())).toFloat();
+        // sendCommand(part1.substring(0, part1.indexOf("_")), String(testFloat));
         printMyValues();
       }    
        //____________________________________________________________________________________________________use this to parseByte
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testByte"))
       {
         testByte=(part1.substring(part1.indexOf("_")+1,part1.length())).toInt();
+        //sendCommand(part1.substring(0, part1.indexOf("_")), String(testByte));
         printMyValues();
       }  
        //____________________________________________________________________________________________________use this to parseBoolean
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testBoolean"))
       {
         testBoolean=(part1.substring(part1.indexOf("_")+1,part1.length())).toInt();
+        //sendCommand(part1.substring(0, part1.indexOf("_")), String(testBoolean));
         printMyValues();
       }  
-       //____________________________________________________________________________________________________use this to parseByte
-      if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testBoolean"))
-      {
-        testBoolean=(part1.substring(part1.indexOf("_")+1,part1.length())).toInt();
-        printMyValues();
-      }  
+ 
        //____________________________________________________________________________________________________use this to parsDateTime in Seconds unixtimne!
       if(part1.substring(0, part1.indexOf("_")).equalsIgnoreCase("testDateTime"))
       {
-        char arr[12];
+        char arr[20];
         (part1.substring(part1.indexOf("_")+1,part1.length())).toCharArray(arr, sizeof(arr));
         testDateTime=atol(arr);
+        // sendCommand(part1.substring(0, part1.indexOf("_")), String(testDateTime.unixtime()));
         printMyValues();
       }  
     }
@@ -188,6 +189,7 @@ String part1;
 
   else
    {
+    Serial.print("Else: ");
     Serial.println(com);
    }
   
